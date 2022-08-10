@@ -17,20 +17,21 @@ class Balancete(models.Model):
     saldo = models.DecimalField(max_digits=10, decimal_places=2)
     data_criacao = models.DateField(auto_now_add=True)
 
-class Entrada(models.Model):
+class Receita(models.Model):
     titular_entrada = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     descricao = models.CharField(max_length=30)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     data_criacao = models.DateField(auto_now_add=True)
-    balancete_ref = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    balancete_ref = models.ForeignKey(Balancete, on_delete=models.SET_NULL, null=True, blank=True)
     def __str__(self):
         return self.descricao
 
-class Saida(models.Model):
+class Despesa(models.Model):
     titular_saida = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     descricao = models.CharField(max_length=30)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     data_criacao = models.DateField(auto_now_add=True)
+    balancete_ref = models.ForeignKey(Balancete, on_delete=models.SET_NULL, null=True, blank=True)
     def __str__(self):
         return self.descricao
 
