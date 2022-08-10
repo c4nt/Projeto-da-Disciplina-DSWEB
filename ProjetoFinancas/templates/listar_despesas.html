@@ -10,7 +10,7 @@
     <h1>Lista de despesas cadastradas</h1>
     <ul>
         {% for d in despesas  %}
-        <li>Descrição: {{ d }} ------ Valor: {{ d.valor }}</li>
+        <li>Descrição: {{ d.descricao }} ------ Valor: {{ d.valor }}</li>
         {% endfor %}
     </ul> 
     <p>{{balancete.data_criacao}}</p>   

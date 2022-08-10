@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from .models import Despesas, Balancete
+from .models import Saida, Entrada, Balancete
 
 
 class index(View):
@@ -14,13 +14,14 @@ class cadastro_usuario(View):
  
 class listar_despesas(View):
     def get(self, request, *args, **kwargs):
-        despesas = Despesas.objects.all()
-        balancete = Balancete.objects.get(pk=1)
+        despesas = Saida.objects.all()
+#        balancete = Balancete.objects.get(pk=1)
         context = {
             'despesas': despesas,
-            'balancete': balancete
+#           'balancete': balancete
         }
         return render(request, 'listar_despesas.html', context=context )
 
-#class balancete(View):
-#    def get(self, request, *args, **kwargs):
+class gerar_balancete(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'gerar_balancete.html')
