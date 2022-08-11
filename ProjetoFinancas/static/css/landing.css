@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+}
+
+#navbarNav a {
+    color: white;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+#navbarNav a:hover {
+    color: rgb(176, 218, 255);
+}

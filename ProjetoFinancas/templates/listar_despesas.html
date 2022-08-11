@@ -1,18 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Despesas</title>
+    <link rel="stylesheet" href="{% static 'css/despesas.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Finanças Pessoais</title>
 </head>
 <body>
-    <h1>Lista de despesas cadastradas</h1>
-    <ul>
-        {% for d in despesas  %}
-        <li>Descrição: {{ d.descricao }} ------ Valor: {{ d.valor }}</li>
-        {% endfor %}
-    </ul> 
-    <p>{{balancete.data_criacao}}</p>   
+    <header>
+        <div class="logo">
+            <h1>Lista de despesas gerais</h1>
+        </div>
+    </header>
+    <section>
+        <div class="tabela">
+            <table class="table">
+                <thead class="cab">
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Titular</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                {% for d in despesas %}
+                <tbody>
+                    <tr>
+                    <th scope="row">{{ d.id }}</th>
+                    <td>{{ d.titular_saida }}</td>
+                    <td>{{ d.descricao }}</td>
+                    <td>{{ d.valor }}</td>
+                    </tr>
+                    <tr>
+                </tbody>
+                {% endfor %}
+                </table>
+        </div> 
+        <div class="btns">
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Gerar relatório</button>
+            <a href="/" class="btn btn-secondary btn-lg btn-block">Voltar para página inicial</a>
+        </div>       
+    </section>
+        
 </body>
 </html>
