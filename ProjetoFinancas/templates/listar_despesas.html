@@ -22,25 +22,42 @@
             <table class="table">
                 <thead class="cab">
                     <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Titular</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Valor</th>
+                    <th scope="col">Tipo</th>
                     </tr>
                 </thead>
                 {% for d in despesas %}
-                <tbody>
-                    <tr>
-                    <th scope="row">{{ d.id }}</th>
-                    <td>{{ d.titular_saida }}</td>
-                    <td>{{ d.descricao }}</td>
-                    <td>{{ d.valor }}</td>
-                    </tr>
-                    <tr>
-                </tbody>
+                    <tbody>
+                        <tr>
+                        <th scope="row">{{ d.titular_saida }}</th>
+                        <td>{{ d.descricao }}</td>
+                        <td>{{ d.valor }}</td>
+                        <td>Despesa</td>
+                        </tr>
+                        <tr>
+                    </tbody>
+                {% endfor %}
+                <hr>
+                {% for d in receitas %}
+                    <tbody>
+                        <tr>
+                        <th scope="row">{{ d.titular_entrada }}</th>
+                        <td>{{ d.descricao }}</td>
+                        <td>{{ d.valor }}</td>
+                        <td>Receita</td>
+                        </tr>
+                        <tr>
+                    </tbody>
                 {% endfor %}
                 </table>
         </div> 
+        <div class="numeros">
+            <p>Total de Receitas: {{ z }}</p>
+            <p>Total de Despesas: {{ y }}</p>
+            <p>Saldo: {{ saldo }}</p>
+        </div>
         <div class="btns">
             <button type="button" class="btn btn-secondary btn-lg btn-block">Gerar relatório</button>
             <a href="/" class="btn btn-secondary btn-lg btn-block">Voltar para página inicial</a>

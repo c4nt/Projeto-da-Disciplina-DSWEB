@@ -44,10 +44,21 @@ class cadastro_contas(View):
 class listar_despesas(View):
     def get(self, request, *args, **kwargs):
         despesas = Despesa.objects.all()
-#        balancete = Balancete.objects.get(pk=1)
+        receitas = Receita.objects.all()
+        y = 0
+        z = 0
+        for x in despesas:
+            y += x.valor 
+        for x in receitas:
+            z += x.valor 
+        saldo = z - y
+
         context = {
             'despesas': despesas,
-#           'balancete': balancete
+            'receitas': receitas,
+            'y':y,
+            'z':z,
+            'saldo':saldo
         }
         return render(request, 'listar_despesas.html', context=context )
 

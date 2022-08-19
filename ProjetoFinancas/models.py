@@ -10,7 +10,7 @@ class Status(models.Model):
 class Usuario(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return f"Nome: {self.user.username}"
+        return self.user.username
 
 class Balancete(models.Model):
     titular_balancete = models.ForeignKey(Usuario, on_delete=models.CASCADE)
