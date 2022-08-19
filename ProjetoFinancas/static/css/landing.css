@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+body {
+    background: url(https://img.freepik.com/vetores-gratis/financas-e-ilustracao-de-conceito-de-desempenho-financeiro_53876-40450.jpg?w=2000);
+    background-size: cover;
+}
+
 header {
     display: flex;
 }

@@ -30,6 +30,12 @@
                   <button type="reset" class="btn btn-primary" value="cadastrar-se">Resetar</button>
             </form>
             </div>
+
+            <div class="usuarios">
+                {% for u in usuarios %}
+                    <a href="/{{u.id}}/dashboard">{{ u }}</a>
+                {% endfor %}
+            </div>
     </section>
 </body>
 </html>

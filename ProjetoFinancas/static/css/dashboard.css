@@ -1,0 +1,53 @@
+
+.logo{
+    background-color: black;
+    color: white;
+    width: 100%;
+    display: flex;
+    
+}
+
+.logo h1 {
+    margin-left: 510px;
+    margin-right: auto;
+
+
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+.grade {
+    display: flex;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
+
+.card {
+    margin-left: 25px;
+}
+
+.coin {
+    height: 310px;
+}
+
+.card-bodyc h5{
+    margin-top: -8px;
+    margin-left: 20px;
+}
+
+.card-bodyc p {
+    margin-left: 20px;
+}
+
+.card-bodyc a {
+    margin-left: 20px;
+    margin-top: 23px;
+}
