@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.contrib.auth import login, logout
-from .models import Despesa, Receita, Balancete, Usuario
+from .models import Despesa, Receita, Usuario
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.decorators import method_decorator
@@ -36,9 +36,9 @@ class cadastro_contas(View):
     def post(self, request, usuario_id, **kwargs):
         usuario = Usuario.objects.get(pk=usuario_id)
         if request.POST["tipo"] == 'receita':
-            Receita.objects.create(titular_entrada=usuario, descricao=request.POST["descricao"], valor=request.POST["valor"])
+            Receita.objects.create(titular_entrada=usuario, descricao=request.POST["descricao"], valor=request.POST["valor"], data_criacao=request.POST["data"])
         elif request.POST["tipo"] == 'despesa':
-            Despesa.objects.create(titular_saida=usuario, descricao=request.POST["descricao"], valor=request.POST["valor"])
+            Despesa.objects.create(titular_saida=usuario, descricao=request.POST["descricao"], valor=request.POST["valor"], data_criacao=request.POST["data"])
         return HttpResponseRedirect(reverse('index'))
 
 class listar_despesas(View):
@@ -61,6 +61,27 @@ class listar_despesas(View):
             'saldo':saldo
         }
         return render(request, 'listar_despesas.html', context=context )
+
+class gerar_balancete(View):
+    def get(self, request, usuario_id, *args, **kwargs):
+        usuario = Usuario.objects.get(pk=usuario_id)
+        despesas = Despesa.objects.filter(titular_saida__id = usuario_id)
+        receitas = Receita.objects.filter(titular_entrada__id = usuario_id)
+        y = 0
+        z = 0
+        for x in despesas:
+            y += x.valor 
+        for x in receitas:
+            z += x.valor 
+        saldo = z - y
+        context = {
+            'despesas': despesas,
+            'receitas': receitas,
+            'y':y,
+            'z':z,
+            'saldo':saldo
+        }
+        return render(request, 'gerar_balancete.html', context=context )
 
 class login(View):
      def get(self, request, *args, **kwargs):
