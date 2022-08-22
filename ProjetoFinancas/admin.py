@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import Receita, Despesa, Status, Usuario
+from .models import Conta, Status, Usuario
 
 admin.site.register(Status)
 admin.site.register(Usuario)
-admin.site.register(Receita)
-admin.site.register(Despesa)
+admin.site.register(Conta)
 
 
 

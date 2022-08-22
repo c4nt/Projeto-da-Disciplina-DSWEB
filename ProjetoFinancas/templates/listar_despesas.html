@@ -29,38 +29,24 @@
                     <th scope="col">Data</th>
                     </tr>
                 </thead>
-                {% for d in despesas %}
+                {% for d in contas %}
                     <tbody>
                         <tr>
-                        <th scope="row">{{ d.titular_saida }}</th>
+                        <th scope="row">{{ d.titular }}</th>
                         <td>{{ d.descricao }}</td>
                         <td>{{ d.valor }}</td>
-                        <td>Despesa</td>
+                        {% if d.ehDespesa == True %}
+                            <td>Despesa</td>
+                        {% else %}
+                            <td>Receita</td>
+                        {% endif %}
                         <td>{{ d.data_criacao|date:"d/m/y"}}</td>
                         </tr>
                         <tr>
                     </tbody>
                 {% endfor %}
-                <hr>
-                {% for d in receitas %}
-                    <tbody>
-                        <tr>
-                        <th scope="row">{{ d.titular_entrada }}</th>
-                        <td>{{ d.descricao }}</td>
-                        <td>{{ d.valor }}</td>
-                        <td>Receita</td>
-                        <td>{{ d.data_criacao|date:"d/m/y" }}</td>
-                        </tr>
-                        <tr>
-                    </tbody>
-                {% endfor %}
-                </table>
+            </table>
         </div> 
-        <div class="numeros">
-            <p>Total de Receitas: {{ z }}</p>
-            <p>Total de Despesas: {{ y }}</p>
-            <p>Saldo: {{ saldo }}</p>
-        </div>
         <div class="btns">
             <button type="button" class="btn btn-secondary btn-lg btn-block">Gerar relatório</button>
             <a href="/" class="btn btn-secondary btn-lg btn-block">Voltar para página inicial</a>

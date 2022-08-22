@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    
+}
+
+.logo{
+    background-color: black;
+    color: white;
+    width: 900px;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+}
+
+section {
+
+}
+
+.tabela{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.titulotabela h1{
+    font-size: 30px;
+}
+
+.cab {
+    background-color: black;
+    color: white;
+}
+
+.cab1 {
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+
+}
+
+.consulta {
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.alerta {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-decoration: underline;
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.consulta form label {
+    font-size: 20px;
+}
+
+.consulta form input {
+    width: 265px;
+}
+
+.consulta form button {
+    margin-top: 10px;
+}
+
+.btns {
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.btns button {
+    margin-bottom: -5px;
+    border-radius: 0px;
+}
+
+.btns a {
+    border-radius: 0px;
+
+}
+
+.consulta a {
+    margin-top: 10px;
+
+    text-decoration: none;
+    color: white;
+}
+
+.numeros {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+}
+
+.numeros p {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: solid rgba(0, 0, 0, 0.267) 1px;
+}
