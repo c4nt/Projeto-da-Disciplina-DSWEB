@@ -16,25 +16,21 @@
     </header>
     <section>
         <div class="formcad">
-            <form action="{% url 'cadastro_usuario' %}" method="POST" id="cadastroUsuario">
+            <form action="{% url 'login' %}" method="POST" id="login">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nome</label>
-                    <input type="text" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu nome">
+                    <input type="text" name="nome" class="form-control" id="exampleInputnamr" aria-describedby="emailHelp" placeholder="Digite seu nome">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Senha</label>
                     <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                   </div>
+                  <p>{{ erro }}</p>
+                  <input type="hidden" name="next" value="{{ next }}">
                   <button type="submit" class="btn btn-primary" value="cadastrar-se">Entrar</button>
-                  <button type="reset" class="btn btn-primary" value="cadastrar-se">Resetar</button>
+                  <button type="reset" class="btn btn-primary" value="cadastrar-se">Limpar</button>
             </form>
-            </div>
-
-            <div class="usuarios">
-                {% for u in usuarios %}
-                    <a href="/{{u.id}}/dashboard">{{ u }}</a>
-                {% endfor %}
             </div>
     </section>
 </body>

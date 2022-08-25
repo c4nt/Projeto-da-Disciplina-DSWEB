@@ -14,10 +14,11 @@
   <header>
     <div class="logo">
         <h1>Dashboard do Cliente</h1>
-          <a href="/">Sair</a>
+          <a href="{% url 'logout' %}">Sair</a>
     </div>
   </header>
     <div class="grade">
+      {% if user.is_authenticated %}
       <div class="card" style="width: 18rem;">
           <img src="https://img.freepik.com/vetores-gratis/vetor-de-gestao-de-negocios_53876-44129.jpg?w=2000" class="card-img-top" alt="...">
           <div class="card-body">
@@ -44,7 +45,7 @@
             <a href="arquivo-de-contas/" class="btn btn-primary">Gerar balancete</a>
           </div>
         </div>
-
+      {% endif %}
     </div>
 </body>
 </html>
